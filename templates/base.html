@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="/static/css/bootstrap.css" rel="stylesheet">
+        <script src="/static/js/bootstrap.bundle.js"></script>
+        <title> {{ title }}</title>
+    </head>
+    <body>
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+          <img src="/static/img/world.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+              {% if current_user.is_authenticated %}
+                <a class="navbar-brand" href="/logout">  {{ current_user.name }} </a>
+                {% else %}
+                <p>
+                    <a class="btn btn-primary" href="/register"> Зарегистрироваться </a>
+                    <a class="btn btn-success" href="/login"> Войти </a>
+                </p>
+                {% endif %}
+        </a>
+      </div>
+    </nav>
+
+    {% block content %}
+
+
+    {% endblock %}
+    </body>
+</html>
